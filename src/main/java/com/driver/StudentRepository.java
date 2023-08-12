@@ -2,12 +2,14 @@ package com.driver;
 
 import com.driver.Model.Student;
 import com.driver.Model.Teacher;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+@Repository
 public class StudentRepository
 {
     HashSet<Student> studentHashSet=new HashSet<>();
