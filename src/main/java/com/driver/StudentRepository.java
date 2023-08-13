@@ -37,14 +37,19 @@ public class StudentRepository
 
     public String addStudentTeacher(String student, String teacher)
     {
+        List<String>list=new ArrayList<>();
         if(!teacherStudentMap.containsKey(student))
         {
-            List<String>list=new ArrayList<>();
             list.add(student);
             teacherStudentMap.put(teacher,list);
             return "Success";
         }
-        return "Failed";
+        else {
+            list = teacherStudentMap.get(teacher);
+            list.add(student);
+            teacherStudentMap.put(teacher, list);
+            return "Success";
+        }
     }
 
     public Student getStudentByName(String name)
@@ -101,7 +106,7 @@ public class StudentRepository
             teacherHashSet.remove(teacher1);
         }
         List<String>studentList = teacherStudentMap.get(teacher);
-        for(Student student:studentHashSet)
+        for (Student student:studentHashSet)
         {
             if(studentList.contains(student.getName()))
             {
